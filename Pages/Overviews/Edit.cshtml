@@ -1,0 +1,65 @@
+﻿@page
+@model Proiect_MPD.Pages.Overviews.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Overview</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Overview.ID" />
+            <div class="form-group">
+                <label asp-for="Overview.Nume" class="control-label"></label>
+                <input asp-for="Overview.Nume" class="form-control" />
+                <span asp-validation-for="Overview.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Overview.Prenume" class="control-label"></label>
+                <input asp-for="Overview.Prenume" class="form-control" />
+                <span asp-validation-for="Overview.Prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Overview.Varsta" class="control-label"></label>
+                <input asp-for="Overview.Varsta" class="form-control" />
+                <span asp-validation-for="Overview.Varsta" class="textdanger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Overview.CategorieID" class="control-label">Categorie </label>
+                <select asp-for="Overview.CategorieID" class="form-control" asp-items="ViewBag.CategorieID">
+                </select>
+                <span asp-validation-for="Overview.CategorieID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Overview.CursaID" class="control-label">Cursa </label>
+                <select asp-for="Overview.CursaID" class="form-control" asp-items="ViewBag.CursaID">
+                </select>
+                <span asp-validation-for="Overview.CursaID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Overview.LocatieID" class="control-label">Locatie </label>
+                <select asp-for="Overview.LocatieID" class="form-control" asp-items="ViewBag.LocatieID">
+                </select>
+                <span asp-validation-for="Overview.LocatieID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
